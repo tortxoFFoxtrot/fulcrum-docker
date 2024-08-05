@@ -1,0 +1,12 @@
+services:
+  fulcrum:
+    container_name: fulcrum
+    image: farfoxachedocker/fulcrum:latest
+    build:
+      context: .
+      network: host
+      dockerfile: ./Dockerfile
+    volumes:
+      - ./config:/config:ro
+      - /mnt/raid-pool/blockchains/Bitcoin/Fulcrum:/data:rw
+networks: {}
